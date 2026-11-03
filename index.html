@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>トランポリンの森 RolyPoly | 愛知県小牧市の体操・トランポリン教室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #FF6B35;
+      --orange-light: #FF8C5A;
+      --navy: #1A3A5C;
+      --navy-light: #264D77;
+      --teal: #3EC9C0;
+      --teal-light: #6EDBD4;
+      --warm-white: #FFF8F0;
+      --text: #1C1C2E;
+      --text-sub: #555;
+      --bg-section: #F7FBFE;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      background: var(--navy);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .header-logo a {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .header-logo .logo-en {
+      font-size: 11px;
+      letter-spacing: .12em;
+      color: var(--teal);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .header-logo .logo-ja {
+      font-size: 18px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .header-logo .logo-ja span {
+      color: var(--orange);
+    }
+
+    .header-cta a {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 9px 16px;
+      border-radius: 24px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background .2s;
+    }
+
+    .header-cta a:hover { background: var(--orange-light); }
+
+    /* ─── HERO IMAGE ─── */
+    .hero-img-wrap {
+      width: 100%;
+      overflow: hidden;
+      background: var(--navy);
+    }
+
+    .hero-img-wrap img {
+      width: 100%;
+      display: block;
+      max-height: 480px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* ─── HERO TEXT ─── */
+    .hero-text {
+      background: linear-gradient(160deg, var(--navy) 0%, #0e2540 100%);
+      padding: 48px 24px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-text::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 240px; height: 240px;
+      background: var(--teal);
+      opacity: .08;
+      border-radius: 50%;
+    }
+
+    .hero-text::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 280px; height: 280px;
+      background: var(--orange);
+      opacity: .07;
+      border-radius: 50%;
+    }
+
+    .hero-text .badge {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      letter-spacing: .06em;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(26px, 6vw, 44px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.35;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-text h1 .accent { color: var(--teal); }
+
+    .hero-text .hero-sub {
+      font-size: clamp(14px, 3.2vw, 17px);
+      color: rgba(255,255,255,.82);
+      max-width: 560px;
+      margin: 0 auto 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 15px 32px;
+      border-radius: 40px;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(255,107,53,.45);
+      transition: transform .18s, box-shadow .18s;
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(255,107,53,.55); }
+
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 30px;
+      border-radius: 40px;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,.55);
+      transition: border-color .18s, background .18s;
+    }
+
+    .btn-secondary:hover { border-color: #fff; background: rgba(255,255,255,.08); }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 64px 20px; }
+
+    .section-inner { max-width: 900px; margin: 0 auto; }
+
+    .section-title {
+      font-size: clamp(20px, 4.5vw, 30px);
+      font-weight: 900;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .section-sub {
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-sub);
+      margin-bottom: 40px;
+    }
+
+    .accent-line {
+      display: block;
+      width: 48px;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--orange);
+      margin: 12px auto 0;
+    }
+
+    /* ─── FEATURES STRIP ─── */
+    .features-strip {
+      background: var(--warm-white);
+      padding: 40px 20px;
+    }
+
+    .features-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px 20px 24px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(26,58,92,.07);
+      border-top: 4px solid var(--teal);
+    }
+
+    .feature-card .icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.65;
+    }
+
+    /* ─── RECOMMEND (イチオシ) ─── */
+    .recommend-section {
+      background: var(--navy);
+      color: #fff;
+      padding: 70px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .recommend-section::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -80px;
+      width: 350px; height: 350px;
+      background: var(--teal);
+      opacity: .06;
+      border-radius: 50%;
+    }
+
+    .recommend-section .section-title { color: #fff; }
+
+    .recommend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .recommend-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 20px;
+      padding: 30px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .recommend-card.main-card {
+      border-color: var(--orange);
+      background: rgba(255,107,53,.1);
+      grid-column: 1 / -1;
+    }
+
+    .recommend-card.main-card .r-num { color: var(--orange); }
+
+    .r-num {
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 8px;
+      opacity: .9;
+    }
+
+    .recommend-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .recommend-card p {
+      font-size: 13.5px;
+      color: rgba(255,255,255,.78);
+      line-height: 1.7;
+    }
+
+    .recommend-card .coming-badge {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    /* ─── OPEN DAY ─── */
+    .openday-section {
+      background: linear-gradient(135deg, var(--orange) 0%, #FF9A5C 100%);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .openday-section .section-title { color: #fff; }
+    .openday-section .accent-line { background: rgba(255,255,255,.6); }
+
+    .openday-box {
+      background: rgba(255,255,255,.15);
+      border: 2px solid rgba(255,255,255,.4);
+      border-radius: 20px;
+      padding: 32px 24px;
+      max-width: 540px;
+      margin: 32px auto 0;
+    }
+
+    .openday-box .day-badge {
+      font-size: 26px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .openday-box p {
+      font-size: 14px;
+      color: rgba(255,255,255,.92);
+      line-height: 1.7;
+    }
+
+    .openday-box .cta-row {
+      margin-top: 24px;
+    }
+
+    .btn-white {
+      display: inline-block;
+      background: #fff;
+      color: var(--orange);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 34px;
+      border-radius: 40px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,.15);
+      transition: transform .18s;
+    }
+
+    .btn-white:hover { transform: translateY(-2px); }
+
+    /* ─── STRENGTH ─── */
+    .strength-section { background: var(--bg-section); }
+
+    .strength-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .strength-list li {
+      background: #fff;
+      border-radius: 14px;
+      padding: 22px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: 0 2px 10px rgba(26,58,92,.06);
+    }
+
+    .strength-list li .s-icon {
+      flex-shrink: 0;
+      width: 46px; height: 46px;
+      background: linear-gradient(135deg, var(--teal) 0%, var(--navy) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .strength-list li .s-text h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 5px;
+    }
+
+    .strength-list li .s-text p {
+      font-size: 13.5px;
+      color: var(--text-sub);
+      line-height: 1.65;
+    }
+
+    /* ─── REVIEW ─── */
+    .review-section { background: #fff; }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .review-card {
+      background: var(--warm-white);
+      border-radius: 16px;
+      padding: 24px 22px;
+      border-left: 4px solid var(--orange);
+    }
+
+    .review-stars { color: #FFA500; font-size: 18px; margin-bottom: 10px; }
+
+    .review-card p {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.72;
+    }
+
+    /* ─── CLASS INFO ─── */
+    .info-section { background: var(--bg-section); }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .info-table tr { border-bottom: 1px solid #E8EDF3; }
+
+    .info-table tr:last-child { border-bottom: none; }
+
+    .info-table th {
+      background: var(--navy);
+      color: #fff;
+      font-weight: 700;
+      padding: 13px 18px;
+      white-space: nowrap;
+      width: 36%;
+      vertical-align: top;
+    }
+
+    .info-table td {
+      background: #fff;
+      padding: 13px 18px;
+      color: var(--text);
+      vertical-align: top;
+      line-height: 1.65;
+    }
+
+    .info-table a { color: var(--navy); }
+
+    /* ─── CTA BANNER ─── */
+    .cta-section {
+      background: linear-gradient(160deg, var(--teal) 0%, #2AA8A0 100%);
+      padding: 64px 20px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(20px, 4.5vw, 28px);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .cta-section p {
+      font-size: 14px;
+      color: rgba(255,255,255,.88);
+      margin-bottom: 30px;
+    }
+
+    .cta-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    /* ─── MAP ─── */
+    .map-section { padding: 64px 20px; background: #fff; }
+
+    .map-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(26,58,92,.12);
+      margin-bottom: 20px;
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 340px;
+      display: block;
+      border: 0;
+    }
+
+    .map-btn-row { text-align: center; margin-top: 18px; }
+
+    .btn-map {
+      display: inline-block;
+      background: var(--navy);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background .18s;
+    }
+
+    .btn-map:hover { background: var(--navy-light); }
+
+    /* ─── SNS ─── */
+    .sns-section {
+      background: var(--warm-white);
+      padding: 48px 20px;
+      text-align: center;
+    }
+
+    .sns-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .sns-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      background: #fff;
+      border-radius: 40px;
+      padding: 12px 22px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.08);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      transition: transform .18s, box-shadow .18s;
+    }
+
+    .sns-link:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,.14); }
+
+    .sns-link svg { flex-shrink: 0; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,.72);
+      padding: 44px 20px 24px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-size: 20px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .footer-logo span { color: var(--orange); }
+
+    .footer-address {
+      font-size: 13px;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 18px;
+      margin-bottom: 24px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,.7);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color .15s;
+    }
+
+    .footer-links a:hover { color: var(--teal); }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,.38);
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 18px;
+      margin-top: 8px;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 600px) {
+      header { padding: 12px 16px; }
+      .header-logo .logo-ja { font-size: 15px; }
+      .hero-text { padding: 40px 16px 48px; }
+      .feature-card { padding: 22px 16px 20px; }
+      .recommend-card.main-card { grid-column: auto; }
+      .info-table th { width: 40%; font-size: 13px; }
+      .info-table td { font-size: 13px; }
+      section { padding: 52px 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header>
+  <div class="header-logo">
+    <a href="https://rolyp.com/" target="_blank" rel="noopener">
+      <span class="logo-en">Trampoline's Forest</span>
+      <span class="logo-ja">トランポリンの森 <span>RolyPoly</span></span>
+    </a>
+  </div>
+  <div class="header-cta">
+    <a href="https://rolyp.com/contact/" target="_blank" rel="noopener">無料体験申込み</a>
+  </div>
+</header>
+
+<!-- ─── HERO IMAGE ─── -->
+<div class="hero-img-wrap">
+  <img src="images/hero.png" alt="トランポリンの森 RolyPoly" />
+</div>
+
+<!-- ─── HERO TEXT ─── -->
+<div class="hero-text">
+  <span class="badge">愛知県小牧市 トランポリン・体操教室</span>
+  <h1>跳ねるたびに、<br><span class="accent">「できた！」</span>が増えていく</h1>
+  <p class="hero-sub">競技用トランポリン・エアーマット・ボルダリングが揃った本格設備で、<br>3歳から中学生まで一人ひとりのペースでのびのびと成長できます。</p>
+  <div class="hero-btns">
+    <a href="https://rolyp.com/contact/" target="_blank" rel="noopener" class="btn-primary">無料体験レッスンに申込む</a>
+    <a href="https://rolyp.com/" target="_blank" rel="noopener" class="btn-secondary">公式サイトを見る</a>
+  </div>
+</div>
+
+<!-- ─── FEATURES STRIP ─── -->
+<div class="features-strip">
+  <div class="features-grid">
+    <div class="feature-card">
+      <span class="icon">🏅</span>
+      <h3>競技用本格設備</h3>
+      <p>競技用トランポリン・エアーマット・ボルダリング・跳び箱など充実した環境で本格的に練習できます。</p>
+    </div>
+    <div class="feature-card">
+      <span class="icon">👶</span>
+      <h3>3歳〜中学生まで</h3>
+      <p>年齢・経験を問わず入会OK。初めての子も経験者も、それぞれのペースで上達できます。</p>
+    </div>
+    <div class="feature-card">
+      <span class="icon">🌿</span>
+      <h3>安心の丁寧指導</h3>
+      <p>経験豊富なスタッフが安全を最優先に、一人ひとりに寄り添ったサポートをします。</p>
+    </div>
+    <div class="feature-card">
+      <span class="icon">📅</span>
+      <h3>土日は一般開放</h3>
+      <p>教室生以外でも参加できる一般開放DAYを週末に実施。親子や友人同士でも楽しめます。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── RECOMMEND ─── -->
+<section class="recommend-section">
+  <div class="section-inner">
+    <h2 class="section-title">RolyPolyのイチオシサービス</h2>
+    <span class="accent-line" style="background:var(--teal);"></span>
+    <div class="recommend-grid">
+
+      <div class="recommend-card main-card">
+        <div class="r-num">01</div>
+        <h3>バク転・宙返り習得に特化したアクロバット指導</h3>
+        <p>競技用トランポリンとエアーマットを活用し、バク転や宙返りといったアクロバット技の習得に向けて段階的に挑戦できます。技ができるようになる達成感が、次へのモチベーションにつながります。</p>
+      </div>
+
+      <div class="recommend-card">
+        <div class="r-num">02</div>
+        <h3>競技用トランポリンで<br>全身運動</h3>
+        <p>本格的な競技用トランポリンで高く跳びながら、楽しみながら体幹・バランス感覚・空間認識能力を自然に鍛えることができます。</p>
+      </div>
+
+      <div class="recommend-card">
+        <div class="r-num">03</div>
+        <h3>年少（3歳）からの<br>個別対応プログラム</h3>
+        <p>3歳から中学生まで対応。一人ひとりの習熟度に合わせた丁寧なカリキュラムで、運動が苦手なお子さんでも楽しみながら成長できます。</p>
+      </div>
+
+      <div class="recommend-card">
+        <div class="r-num">04</div>
+        <h3>ボルダリング・跳び箱も<br>体験できる充実設備</h3>
+        <p>ボルダリングウォール・跳び箱など、体の使い方を総合的に学べる設備が充実。多角的な運動体験が子どもの可能性を広げます。</p>
+      </div>
+
+      <div class="recommend-card">
+        <div class="r-num">05</div>
+        <h3>準備中｜スローモーション撮影サービス</h3>
+        <p>技の完成度をその場で確認できるスローモーション撮影を導入予定。映像でフォームを振り返りながら、より効果的なスキルアップを目指せます。</p>
+        <span class="coming-badge">COMING SOON</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── OPEN DAY ─── -->
+<section class="openday-section">
+  <h2 class="section-title">土日は<br>大人も楽しめる「一般開放DAY」</h2>
+  <span class="accent-line"></span>
+  <div class="openday-box">
+    <div class="day-badge">🗓 土曜・日曜</div>
+    <p>教室生でなくても参加できる一般開放を実施しています。<br>お子さんと一緒に保護者の方も体験できるので、<br>親子で「跳ねる楽しさ」を共有できます。</p>
+    <div class="cta-row">
+      <a href="https://rolyp.com/contact/" target="_blank" rel="noopener" class="btn-white">詳細・お問い合わせ</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STRENGTH ─── -->
+<section class="strength-section">
+  <div class="section-inner">
+    <h2 class="section-title">RolyPolyが選ばれる理由</h2>
+    <span class="accent-line"></span>
+    <p class="section-sub">本格設備 × 安心の指導 × 幅広い対応</p>
+    <ul class="strength-list">
+      <li>
+        <div class="s-icon">🏟</div>
+        <div class="s-text">
+          <h4>充実した専門設備</h4>
+          <p>競技用トランポリン・エアーマット・ボルダリング・跳び箱など、技の習得や体幹トレーニングに適した本格的な環境が整っています。</p>
+        </div>
+      </li>
+      <li>
+        <div class="s-icon">🌈</div>
+        <div class="s-text">
+          <h4>幅広い年齢・目的に対応</h4>
+          <p>幼児から中学生向けの体操・アクロバット教室はもちろん、土日には大人も参加できる「一般開放」を実施。親子や友人同士でも楽しめます。</p>
+        </div>
+      </li>
+      <li>
+        <div class="s-icon">🤝</div>
+        <div class="s-text">
+          <h4>経験豊富なスタッフによる安心サポート</h4>
+          <p>安全に配慮した丁寧な指導で、初めての子・運動が苦手な子でも、少しずつ「できた！」を積み重ねていける環境があります。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ─── REVIEW ─── -->
+<section class="review-section">
+  <div class="section-inner">
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>子どもが毎週楽しみにしています。スタッフの方がとても丁寧に教えてくれるので、最初は怖がっていたトランポリンも今では大好きに。できることがどんどん増えていくのが見ていてわかります。</p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>設備がとても充実していて驚きました。ボルダリングもトランポリンも楽しめて、子どもだけでなく親も一緒に体を動かせる雰囲気が気に入っています。一般開放日はリピートしています！</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CLASS INFO ─── -->
+<section class="info-section">
+  <div class="section-inner">
+    <h2 class="section-title">教室のご案内</h2>
+    <span class="accent-line"></span>
+    <p class="section-sub" style="margin-bottom:28px;"></p>
+    <table class="info-table">
+      <tr>
+        <th>教室名</th>
+        <td>トランポリンの森 RolyPoly</td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td>〒485-0826<br>愛知県小牧市東田中1044−1</td>
+      </tr>
+      <tr>
+        <th>電話</th>
+        <td><a href="tel:0568686622">0568-68-6622</a></td>
+      </tr>
+      <tr>
+        <th>対象年齢</th>
+        <td>年少（3歳）〜 中学生</td>
+      </tr>
+      <tr>
+        <th>一般開放</th>
+        <td>土曜日・日曜日</td>
+      </tr>
+      <tr>
+        <th>無料体験</th>
+        <td><a href="https://rolyp.com/contact/" target="_blank" rel="noopener">お問い合わせフォームより受付</a></td>
+      </tr>
+      <tr>
+        <th>公式サイト</th>
+        <td><a href="https://rolyp.com/" target="_blank" rel="noopener">https://rolyp.com/</a></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta-section">
+  <div class="section-inner">
+    <h2>まずは無料体験から<br>はじめてみませんか？</h2>
+    <p>費用なし・資格なし・運動経験なし、なんでもOK。<br>お気軽にお問い合わせください。</p>
+    <div class="cta-btns">
+      <a href="https://rolyp.com/contact/" target="_blank" rel="noopener" class="btn-primary" style="background:#1A3A5C; box-shadow:0 4px 18px rgba(26,58,92,.4);">無料体験レッスンに申込む</a>
+      <a href="https://rolyp.com/contact/" target="_blank" rel="noopener" class="btn-white" style="color:var(--teal);">お問い合わせはこちら</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MAP ─── -->
+<section class="map-section">
+  <div class="section-inner">
+    <h2 class="section-title">アクセス</h2>
+    <span class="accent-line"></span>
+    <p class="section-sub">〒485-0826 愛知県小牧市東田中1044−1</p>
+    <div class="map-wrap">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3256.4327198741435!2d136.9415263!3d35.295228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600373fc98aaeaeb%3A0x364a4f7b3e840226!2z44OI44Op44Oz44Od44Oq44Oz44Gu5qOuIFJvbHlQb2x5!5e0!3m2!1sja!2sjp!4v1793249260262!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+    <div class="map-btn-row">
+      <a href="https://www.google.com/maps/place/%E3%83%88%E3%83%A9%E3%83%B3%E3%83%9D%E3%83%AA%E3%83%B3%E3%81%AE%E6%A3%AE+RolyPoly/@35.295228,136.9415263,17z/data=!3m1!4b1!4m6!3m5!1s0x600373fc98aaeaeb:0x364a4f7b3e840226!8m2!3d35.295228!4d136.9415263!16s%2Fg%2F11thnbf_c6?authuser=0&entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn-map">📍 Googleマップで見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SNS ─── -->
+<section class="sns-section">
+  <div class="section-inner">
+    <h2 class="section-title" style="font-size:20px;">SNSでも最新情報を発信中！</h2>
+    <div class="sns-links">
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/rolypoly_trampoline_gymnastics/" target="_blank" rel="noopener" class="sns-link">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="ig-grad" cx="30%" cy="107%" r="150%">
+              <stop offset="0%" stop-color="#fdf497"/>
+              <stop offset="5%" stop-color="#fdf497"/>
+              <stop offset="45%" stop-color="#fd5949"/>
+              <stop offset="60%" stop-color="#d6249f"/>
+              <stop offset="90%" stop-color="#285AEB"/>
+            </radialGradient>
+          </defs>
+          <rect width="24" height="24" rx="6" fill="url(#ig-grad)"/>
+          <circle cx="12" cy="12" r="4.2" stroke="white" stroke-width="1.8" fill="none"/>
+          <circle cx="17.5" cy="6.5" r="1.1" fill="white"/>
+        </svg>
+        Instagram
+      </a>
+
+      <!-- LINE -->
+      <a href="https://line.me/R/ti/p/@675vamwg" target="_blank" rel="noopener" class="sns-link">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="24" height="24" rx="6" fill="#06C755"/>
+          <path d="M20 11.3C20 7.83 16.42 5 12 5C7.58 5 4 7.83 4 11.3C4 14.4 6.7 17 10.35 17.5L9.5 19.5C9.35 19.85 9.7 20.15 10 19.95L13.5 17.55C17.22 17.02 20 14.42 20 11.3Z" fill="white"/>
+        </svg>
+        LINE公式アカウント
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-logo">トランポリンの森 <span>RolyPoly</span></div>
+  <div class="footer-address">
+    〒485-0826 愛知県小牧市東田中1044−1<br>
+    TEL：<a href="tel:0568686622" style="color:rgba(255,255,255,.7); text-decoration:none;">0568-68-6622</a>
+  </div>
+  <div class="footer-links">
+    <a href="https://rolyp.com/" target="_blank" rel="noopener">公式サイト</a>
+    <a href="https://rolyp.com/contact/" target="_blank" rel="noopener">無料体験申込み</a>
+    <a href="https://rolyp.com/contact/" target="_blank" rel="noopener">お問い合わせ</a>
+    <a href="https://www.instagram.com/rolypoly_trampoline_gymnastics/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://line.me/R/ti/p/@675vamwg" target="_blank" rel="noopener">LINE</a>
+  </div>
+  <div class="footer-copy">&copy; トランポリンの森 RolyPoly All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>
